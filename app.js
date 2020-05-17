@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'blue'
   ]
 
-//The Tetrominoes
+//The Tetrominoes shapes
 const lTetromino = [
     [1, GRID_WIDTH + 1, GRID_WIDTH * 2 + 1, 2],
     [GRID_WIDTH, GRID_WIDTH + 1, GRID_WIDTH + 2, GRID_WIDTH * 2 + 2],
@@ -57,7 +57,7 @@ const lTetromino = [
    let random = Math.floor(Math.random() * theTetrominoes.length)
    let current = theTetrominoes[random][currentRotation]
 
- //draw the shape
+ //function to draw the shape
  function draw() {
     current.forEach(index => {
       squares[currentPosition + index].classList.add('block')
@@ -66,5 +66,18 @@ const lTetromino = [
   }
 
   draw();
+
+  //undraw the Tetromino
+  function undraw() {
+    current.forEach(index => {
+      squares[currentPosition + index].classList.remove('tetromino')
+      squares[currentPosition + index].style.backgroundColor = ''
+
+    })
+  }
+
+
+
+
 
 })
